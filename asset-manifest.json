@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/jwersal.github.io/Randomizer/static/css/main.0d6acde6.css",
-    "main.js": "/jwersal.github.io/Randomizer/static/js/main.aabdd46c.js",
-    "static/js/453.cbb64a80.chunk.js": "/jwersal.github.io/Randomizer/static/js/453.cbb64a80.chunk.js",
-    "index.html": "/jwersal.github.io/Randomizer/index.html",
-    "main.0d6acde6.css.map": "/jwersal.github.io/Randomizer/static/css/main.0d6acde6.css.map",
-    "main.aabdd46c.js.map": "/jwersal.github.io/Randomizer/static/js/main.aabdd46c.js.map",
-    "453.cbb64a80.chunk.js.map": "/jwersal.github.io/Randomizer/static/js/453.cbb64a80.chunk.js.map"
+    "main.css": "/jwersal37.github.io/Randomizer/static/css/main.0d6acde6.css",
+    "main.js": "/jwersal37.github.io/Randomizer/static/js/main.babdb8b3.js",
+    "static/js/453.cbb64a80.chunk.js": "/jwersal37.github.io/Randomizer/static/js/453.cbb64a80.chunk.js",
+    "index.html": "/jwersal37.github.io/Randomizer/index.html",
+    "main.0d6acde6.css.map": "/jwersal37.github.io/Randomizer/static/css/main.0d6acde6.css.map",
+    "main.babdb8b3.js.map": "/jwersal37.github.io/Randomizer/static/js/main.babdb8b3.js.map",
+    "453.cbb64a80.chunk.js.map": "/jwersal37.github.io/Randomizer/static/js/453.cbb64a80.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0d6acde6.css",
-    "static/js/main.aabdd46c.js"
+    "static/js/main.babdb8b3.js"
   ]
 }
