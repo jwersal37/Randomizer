@@ -8,6 +8,7 @@ export default function RandomizerControls({
   onShuffle,
   onClearEntries,
   onClearResults,
+  onShare,
   dropdownOpen,
   setDropdownOpen,
   entries
@@ -41,6 +42,15 @@ export default function RandomizerControls({
         disabled={entries.length < 2}
       >
         Shuffle
+      </button>
+      <button
+        onClick={onShare}
+        className="btn btn-success btn-lg flex-shrink-0"
+        aria-label="Share entries"
+        disabled={input.trim() === ""}
+        title="Copy shareable link to clipboard"
+      >
+        Share
       </button>
       {/* Dropdown nav for actions */}
       <div className="nav-item dropdown" style={{ position: 'relative' }}>

@@ -4,9 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ConfirmDeleteModal from "../shared/ConfirmDeleteModal";
 import ResultsList from "./ResultsList";
 import RandomizerControls from "./RandomizerControls";
+import { generateShareUrl, decodeEntries, getEntriesFromUrl } from "../../utils/shareUtils";
 
 export default function Randomizer() {
-  const [input, setInput] = useState(() => localStorage.getItem("randomizer_entries") || "");
+  const [input, setInput] = useState(() => {
+    // Check URL for shared entries first
+    const encodedEntries = getEntriesFromUrl();
+    if (encodedEntries) {
+      const decoded = decodeEntries(encodedEntries);
+      if (decoded) return decoded;
+    }
+    // Fall back to localStorage
+    return localStorage.getItem("randomizer_entries") || "";
+  });
   const [results, setResults] = useState(() => {
     const stored = localStorage.getItem("randomizer_results");
     return stored ? JSON.parse(stored) : {};
@@ -107,6 +117,25 @@ export default function Randomizer() {
     showToast("Entries cleared", "info");
   };
 
+  const handleShare = () => {
+    if (!input || input.trim() === '') {
+      showToast("No entries to share", "warning");
+      return;
+    }
+    const shareUrl = generateShareUrl(input);
+    if (!shareUrl) {
+      showToast("Failed to generate share link", "danger");
+      return;
+    }
+    navigator.clipboard.writeText(shareUrl)
+      .then(() => {
+        showToast("Share link copied to clipboard!", "success");
+      })
+      .catch(() => {
+        showToast("Failed to copy link", "danger");
+      });
+  };
+
   const confirmClear = () => {
     if (confirmType === 'clearAll') {
       setResults({});
@@ -181,6 +210,7 @@ export default function Randomizer() {
               onShuffle={handleShuffle}
               onClearEntries={handleClearEntries}
               onClearResults={handleClearResults}
+              onShare={handleShare}
               dropdownOpen={dropdownOpen}
               setDropdownOpen={setDropdownOpen}
               entries={entries}
